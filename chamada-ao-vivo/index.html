@@ -94,7 +94,6 @@
       gap: 10px;
     }
 
-    /* Bolinha vermelha piscando */
     .dot {
       width: 10px;
       height: 10px;
@@ -144,9 +143,12 @@
       font-weight: 900;
     }
 
-    .stage {
+    /* PLAYER WRAPPER (AGORA EXISTE NO HTML) */
+    #playerBox {
       width: 100%;
       max-width: 820px;
+      position: relative;
+      z-index: 1;
     }
 
     .player {
@@ -183,6 +185,7 @@
       padding: 24px;
       text-align: center;
       background: #000;
+      z-index: 3;
     }
 
     .closedOverlay .kicker {
@@ -210,6 +213,17 @@
     }
 
     /* APOIO */
+    .offer-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      /* IMPORTANTE: garantir que nada do player fique "por cima" */
+      position: relative;
+      z-index: 50;
+      pointer-events: auto;
+    }
+
     .support {
       margin-top: 36px;
       width: 100%;
@@ -220,6 +234,10 @@
       background: rgba(0, 0, 0, .55);
       box-shadow: var(--shadow);
       text-align: center;
+
+      position: relative;
+      z-index: 60;
+      pointer-events: auto;
     }
 
     .supportTitle {
@@ -240,6 +258,10 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 12px;
       margin-bottom: 14px;
+
+      position: relative;
+      z-index: 70;
+      pointer-events: auto;
     }
 
     .supportBtn {
@@ -257,6 +279,15 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+
+      /* ✅ FIX DO TOQUE (mobile/webview) */
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      pointer-events: auto;
+
+      /* ✅ FIX DE CAMADA */
+      position: relative;
+      z-index: 80;
     }
 
     .supportBtn:hover {
@@ -308,22 +339,6 @@
       .metaDate {
         margin-bottom: 18px;
       }
-
-      /* (mantido) */
-      h1 {
-        font-size: 26px;
-        margin-bottom: 14px;
-      }
-
-      /* (mantido) */
-      .player {
-        min-height: 52vh;
-      }
-
-      /* (mantido) */
-      .metaDate {
-        margin-bottom: 18px;
-      }
     }
   </style>
 </head>
@@ -342,18 +357,26 @@
       <div class="metaDate" id="today">CARREGANDO DATA…</div>
 
 
-      <!-- (Corrigido) playerBox existia no JS, mas não existia no HTML -->
+      <vturb-smartplayer id="ab-6967da9778c562fc74195f10" style="display:block; width:100%; height:100%;"></vturb-smartplayer>
+      </div>
 
-      <vturb-smartplayer id="ab-6967da9778c562fc74195f10" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
-      <script type="text/javascript"> var s = document.createElement("script"); s.src = "https://scripts.converteai.net/cda0fd17-3b99-44d2-a83a-fc66435cb2df/ab-test/6967da9778c562fc74195f10/player.js", s.async = !0, document.head.appendChild(s); </script>
+      <!-- ✅ Carrega o player.js UMA ÚNICA VEZ -->
+      <script type="text/javascript">
+        (function () {
+          var s = document.createElement("script");
+          s.src = "https://scripts.converteai.net/cda0fd17-3b99-44d2-a83a-fc66435cb2df/ab-test/6967da9778c562fc74195f10/player.js";
+          s.async = true;
+          document.head.appendChild(s);
+        })();
+      </script>
 
-
-      <!-- (Adicionado, sem remover nada) Delay para liberar a seção escondida após 50s de live -->
+      <!-- ✅ Delay para liberar a seção escondida após 50s de live -->
       <script>
         var delaySeconds = 50; // 50s
         function initVturbDelay() {
           var player = document.querySelector("vturb-smartplayer");
           if (!player) return setTimeout(initVturbDelay, 200);
+
           player.addEventListener("player:ready", function () {
             if (typeof player.displayHiddenElements === 'function') {
               player.displayHiddenElements(delaySeconds, [".esconder"], { persist: true });
@@ -364,18 +387,31 @@
       </script>
 
       <!-- APOIO / CONTRIBUIÇÃO -->
-      <!-- (Corrigido) removido o ">>" extra e fechado as divs certinho -->
       <section class="offer-section esconder">
         <div class="support">
           <div class="supportTitle">Gostando da live?</div>
-          <div class="supportSubtitle">Envie um valor de apoio</div>
+          <div class="supportSubtitle">Pressione o botão por 3 segundos para apoiar</div>
+
 
           <div class="supportGrid">
-            <a class="supportBtn" href="https://app.pushinpay.com.br/service/pay/A0D62495-4AB6-4B0C-B670-608A93020B87" target="_blank" rel="noopener">R$ 5</a>
-            <a class="supportBtn" href="https://app.pushinpay.com.br/service/pay/A0D625EA-257C-49F7-946F-2B0A8C962E72" target="_blank" rel="noopener">R$ 10</a>
-            <a class="supportBtn" href="https://app.pushinpay.com.br/service/pay/a0d6277e-504e-409d-8c0a-9bcbb102f0e2" target="_blank" rel="noopener">R$ 15</a>
-            <a class="supportBtn highlightBtn" href="https://app.pushinpay.com.br/service/pay/a0d627ce-a070-4699-9fc0-c04f6c63835b" target="_blank" rel="noopener">R$ 19</a>
+            <!-- ✅ FIX: webviews podem travar target=_blank no toque, então forçamos window.open -->
+            <a class="supportBtn" href="https://app.pushinpay.com.br/service/pay/A0D62495-4AB6-4B0C-B670-608A93020B87" rel="noopener" onclick="window.open(this.href,'_blank','noopener'); return false;">
+              R$ 5
+            </a>
+
+            <a class="supportBtn" href="https://app.pushinpay.com.br/service/pay/A0D625EA-257C-49F7-946F-2B0A8C962E72" rel="noopener" onclick="window.open(this.href,'_blank','noopener'); return false;">
+              R$ 10
+            </a>
+
+            <a class="supportBtn" href="https://app.pushinpay.com.br/service/pay/a0d6277e-504e-409d-8c0a-9bcbb102f0e2" rel="noopener" onclick="window.open(this.href,'_blank','noopener'); return false;">
+              R$ 15
+            </a>
+
+            <a class="supportBtn highlightBtn" href="https://app.pushinpay.com.br/service/pay/a0d627ce-a070-4699-9fc0-c04f6c63835b" rel="noopener" onclick="window.open(this.href,'_blank','noopener'); return false;">
+              R$ 19
+            </a>
           </div>
+
           <div class="supportHint">Clique para enviar seu apoio ❤️</div>
         </div>
       </section>
@@ -388,11 +424,11 @@
   </main>
 
   <script>
-    // ===== Escopo global (corrigido): closed era usado fora do IIFE =====
+    // ===== Escopo global =====
     var closed = false;
 
     (function () {
-      // ===== DATA (ATUALIZA AUTOMATICAMENTE TODO DIA) =====
+      // ===== DATA =====
       var todayEl = document.getElementById('today');
       function renderDate() {
         if (!todayEl) return;
@@ -468,45 +504,9 @@
       }
 
       updateTimer();
-      // Atualiza a cada 5s (fica mais "vivo"), mas sem pesar
       setInterval(updateTimer, 5000);
 
-      // ===== APOIO (LINKS DIRETOS) =====
-      // Botões agora são links externos (Pix/PushInPay)
-
     })();
-
-    // ===== VTURB PLAYER (CARREGA DEPOIS DO DOM) =====
-    // Em ambientes sandbox, scripts externos podem falhar.
-    document.addEventListener('DOMContentLoaded', function () {
-      // Se a live já estiver fechada, nem tenta carregar o player
-      if (closed) return;
-
-      // Garante que o custom element foi registrado antes do player.js
-      function loadPlayerJs() {
-        var s = document.createElement('script');
-        s.src = 'https://scripts.converteai.net/cda0fd17-3b99-44d2-a83a-fc66435cb2df/ab-test/6967da9778c562fc74195f10/player.js';
-        s.async = true;
-        document.head.appendChild(s);
-      }
-
-      // Se o custom element já existe, carrega na hora. Se não, tenta de novo algumas vezes.
-      var tries = 0;
-      (function waitForElement() {
-        tries++;
-        if (customElements && customElements.get('vturb-smartplayer')) {
-          loadPlayerJs();
-          return;
-        }
-        if (tries >= 20) {
-          // fallback: tenta carregar mesmo assim
-          loadPlayerJs();
-          return;
-        }
-        setTimeout(waitForElement, 150);
-      })();
-    });
-
   </script>
 </body>
 
