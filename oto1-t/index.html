@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vigor Tonic</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://midas.ticto.app/oneclickbuy.js?flow=d9ad7fe4-06aa-4a39-b038-31483a96bb4b.103418" async></script>
+
+  <style>
+    :root {
+      --bg1: #000000;
+      --bg2: #1a0000;
+      --bg3: #3a0000;
+      --text: #ffffff;
+      --muted: rgba(255, 255, 255, .82);
+      --muted2: rgba(255, 255, 255, .68);
+      --yellow: #e6b325;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background:
+        radial-gradient(900px 420px at 50% 0%, rgba(0, 0, 0, .35), transparent 55%),
+        radial-gradient(1000px 650px at 15% 15%, rgba(255, 0, 0, .22), transparent 60%),
+        radial-gradient(900px 700px at 85% 20%, rgba(255, 0, 0, .18), transparent 62%),
+        linear-gradient(180deg, var(--bg3) 0%, var(--bg1) 40%, var(--bg2) 100%);
+      overflow-x: hidden;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 20px 44px;
+      width: 100%;
+    }
+
+    .hero {
+      text-align: center;
+    }
+
+    .headline-warning {
+      margin: 0 auto 28px;
+      max-width: 820px;
+      padding: 16px 20px;
+      background: linear-gradient(180deg, rgba(122, 0, 0, .95), rgba(60, 0, 0, .92));
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      box-shadow: 0 18px 55px rgba(0, 0, 0, .45);
+    }
+
+    .headline {
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 800;
+      margin: 0 0 28px;
+      line-height: 1.15;
+    }
+
+    .highlight-yellow {
+      color: var(--yellow);
+    }
+
+    /* ===== AJUSTES DA HEADLINE ===== */
+    .text-white {
+      color: var(--text);
+    }
+
+    .headline-sub {
+      display: block;
+      margin-top: 12px;
+      font-size: 0.65em;
+      font-weight: 600;
+      opacity: .95;
+    }
+
+    /* ===== NOTE (SOM) ===== */
+    .video-note {
+      margin: 22px auto 44px;
+      padding: 18px 18px;
+      max-width: 860px;
+      font-size: 15px;
+      color: var(--muted);
+      background: linear-gradient(180deg, rgba(122, 0, 0, .35), rgba(60, 0, 0, .25));
+      border: 1px solid rgba(255, 255, 255, .10);
+      border-radius: 16px;
+      text-align: center;
+      line-height: 1.35;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, .38);
+    }
+
+    .esconder {
+      display: none;
+    }
+
+    .upsell-box {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 48px 52px;
+      background: rgba(10, 0, 0, .75);
+      border-radius: 26px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .65);
+      text-align: center;
+    }
+
+    .upsell-bonus p {
+      font-size: 16px;
+      line-height: 1.85;
+      margin: 0 0 22px;
+    }
+
+    .upsell-price {
+      margin: 42px 0 36px;
+      padding: 26px 22px;
+      border: 1px dashed rgba(255, 90, 90, .6);
+      border-radius: 18px;
+      background: rgba(0, 0, 0, .18);
+    }
+
+    .price-main {
+      font-size: 30px;
+      font-weight: 900;
+      color: #ff6a6a;
+      margin-bottom: 10px;
+    }
+
+    .price-sub {
+      font-size: 14px;
+      opacity: .95;
+    }
+
+    .upsell-cta {
+      display: block;
+      margin: 32px auto;
+      padding: 20px;
+      max-width: 560px;
+      width: 100%;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #00d65a, #009a2f);
+      font-weight: 800;
+      text-decoration: none;
+      color: #fff;
+      box-shadow:
+        0 18px 50px rgba(0, 230, 118, .16),
+        0 10px 30px rgba(0, 0, 0, .55),
+        inset 0 0 0 1px rgba(255, 255, 255, .12);
+      transition: transform .15s ease, filter .15s ease;
+    }
+
+    .upsell-cta:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+    }
+
+    .upsell-cta:active {
+      transform: translateY(0);
+      filter: brightness(.98);
+    }
+
+    .upsell-cta.secondary {
+      background: linear-gradient(180deg, #00f07a, #00b44a);
+    }
+
+    .upsell-warning {
+      margin: 36px 0;
+      padding: 18px;
+      border-radius: 16px;
+      background: rgba(255, 0, 0, .12);
+      border: 1px solid rgba(255, 255, 255, .10);
+      font-size: 14px;
+      line-height: 1.7;
+      color: #fff;
+    }
+
+    .upsell-text {
+      margin: 34px 0 42px;
+      font-size: 14px;
+      line-height: 1.9;
+      opacity: .92;
+    }
+
+    .upsell-decline {
+      margin-top: 22px;
+      font-size: 13px;
+      text-decoration: underline;
+      opacity: .75;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .upsell-guarantee {
+      margin-top: 36px;
+      font-size: 13px;
+      opacity: .75;
+      line-height: 1.7;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 18px 16px 26px;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .35));
+      border-top: 1px solid rgba(255, 255, 255, .10);
+    }
+
+    .footer-note__inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 16px 16px;
+      border-radius: 16px;
+      background: rgba(0, 0, 0, .18);
+      border: 1px solid rgba(255, 255, 255, .08);
+      text-align: center;
+      font-size: 12.5px;
+      color: var(--muted2);
+      line-height: 1.55;
+    }
+
+    @media (max-width: 600px) {
+      .wrap {
+        padding: 38px 16px 32px;
+      }
+
+      .headline {
+        font-size: 30px;
+        margin-bottom: 22px;
+      }
+
+      .video-note {
+        margin: 18px auto 34px;
+        padding: 16px 14px;
+        font-size: 14px;
+      }
+
+      .upsell-box {
+        padding: 32px 20px 36px;
+        border-radius: 22px;
+      }
+
+      .upsell-bonus p {
+        font-size: 14px;
+        margin-bottom: 18px;
+      }
+
+      .upsell-price {
+        margin: 32px 0 28px;
+        padding: 20px 16px;
+      }
+
+      .price-main {
+        font-size: 22px;
+      }
+
+      .upsell-cta {
+        margin: 26px auto;
+        padding: 18px;
+        font-size: 14px;
+      }
+
+      .upsell-warning {
+        margin: 28px 0;
+        font-size: 13px;
+      }
+
+      .upsell-text {
+        margin: 28px 0 34px;
+        font-size: 13px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <main class="wrap">
+    <section class="hero">
+
+      <div class="headline-warning">⚠️ IMPORTANTE: Não feche esta página</div>
+
+      <h1 class="headline">
+        <span class="text-white">Não feche essa página </span>
+        <span class="highlight-yellow">sua compra</span>
+        <span class="text-white"> ainda não está completa...</span>
+      </h1>
+
+
+
+      <!--CODIGO DO VSL-->
+
+      <vturb-smartplayer id="vid-6962c9dc93850164e9fe24cf" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer>
+      <script type="text/javascript"> var s = document.createElement("script"); s.src = "https://scripts.converteai.net/cda0fd17-3b99-44d2-a83a-fc66435cb2df/players/6962c9dc93850164e9fe24cf/v4/player.js", s.async = !0, document.head.appendChild(s); </script>
+
+      <!--CODIGO DO VSL-->
+
+
+
+
+      <!-- ✅ Script de delay (revela a oferta depois) -->
+      <script>
+        var delaySeconds = 442; // 7min22s
+
+        function initVturbDelay() {
+          var player = document.querySelector("vturb-smartplayer");
+          if (!player) return setTimeout(initVturbDelay, 200);
+
+          player.addEventListener("player:ready", function () {
+            player.displayHiddenElements(delaySeconds, [".esconder"], { persist: true });
+          });
+        }
+
+        initVturbDelay();
+      </script>
+
+      <div style="margin: 12px 0;">🔊 Verifique se o som está ligado.</div>
+
+
+    </section>
+
+    <!-- OFERTA (fica escondida até o delay) -->
+    <section class="offer-section esconder">
+      <div class="upsell-box">
+        <div class="upsell-bonus">
+          <p><strong>BÔNUS #1:</strong> Guia do Ator Pornô – Mais de 100 poses com exemplos práticos em vídeos reais.</p>
+          <p><strong>BÔNUS #2:</strong> Manual da Persuasão da Mulher – As 12 frases mais poderosas e quando usá-las.</p>
+        </div>
+
+        <div class="upsell-price">
+          <div class="price-main">12x de R$19,78 ou R$197 à vista</div>
+          <div class="price-sub">Menos de 65 centavos por dia</div>
+        </div>
+
+        <button type="button" style="background-color:#14ad00;width:255px;height:50px;font-family:Roboto;font-size:17px;font-weight:400;color:#FFFFFF;border-color:#000000;border-radius:10px;border-width:2px;text-transform:none" class="ticto-upsell-button" onclick="window.location.href='LINK-DE-COMPRA-SIM-UP'">
+          QUERO ADICIONAR O VIGOR AFRICANO À COMPRA
+        </button>
+
+        <div class="upsell-warning">
+          ⚠️ Atenção: Esse valor promocional você só terá aqui e agora. Se sair dessa página, não terá mais essa oportunidade.
+        </div>
+
+        <p class="upsell-text">
+          Após a confirmação do pagamento via Pix ou cartão, o Vigor Africano e os bônus são liberados automaticamente junto com o Segredos do Orgasmo.
+        </p>
+
+        <button type="button" style="background-color:#14ad00;width:255px;height:50px;font-family:Roboto;font-size:17px;font-weight:400;color:#FFFFFF;border-color:#000000;border-radius:10px;border-width:2px;text-transform:none" class="ticto-upsell-button" onclick="window.location.href='LINK-DE-COMPRA-SIM-UP'">
+          SIM, QUERO MAXIMIZAR MEUS RESULTADOS AGORA
+        </button>
+
+        <br><br>
+
+        <button type="button" style="background-color:#000000;width:255px;height:50px;font-family:Roboto;font-size:16px;font-weight:400;color:#FFFFFF;border-color:#000000;border-radius:10px;border-width:2px;text-transform:none" class="ticto-refuse-button" onclick="window.location.href='LINK-DE-NAO-UPSELL'">
+          Prefiro ser assim
+        </button>
+
+
+        <p class="upsell-guarantee">Garantia blindada de 90 dias.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-note__inner">
+      © 2025 — Todos os direitos reservados · Termos · Política
+    </div>
+  </footer>
+
+</body>
+
+</html>
