@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Os Segredos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+
+  <script>
+    window.googlePixelId = "6969a51028d6250424393ebe";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-google.js");
+    document.head.appendChild(a);
+  </script>
+
+
+  <style>
+    :root {
+      --bg1: #3a0000;
+      --bg2: #5b0000;
+      --bg3: #1b0000;
+      --text: #ffffff;
+      --muted2: rgba(255, 255, 255, .68);
+      --yellow: #e6b325;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+    }
+
+    html {
+      background: var(--bg3);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background:
+        radial-gradient(900px 420px at 50% 0%, rgba(255, 0, 0, .22), transparent 55%),
+        radial-gradient(1000px 650px at 15% 15%, rgba(255, 90, 90, .16), transparent 60%),
+        radial-gradient(900px 700px at 85% 20%, rgba(255, 0, 0, .12), transparent 62%),
+        linear-gradient(180deg, var(--bg2) 0%, var(--bg1) 40%, var(--bg3) 100%);
+      overflow-x: hidden;
+
+      /* Mantém o rodapé no fim */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .spacer {
+      flex: 1;
+      width: 100%;
+      min-height: 60vh;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, .10);
+      background: rgba(0, 0, 0, .20);
+    }
+
+    .footerWrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 18px 28px;
+    }
+
+    .footLinks {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .footLinks a {
+      color: rgba(255, 255, 255, .82);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .legal {
+      max-width: 980px;
+      margin: 0 auto;
+      color: var(--muted2);
+      font-size: 12px;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+    }
+
+    .headline {
+      font-size: clamp(26px, 3vw, 42px);
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .subheadline {
+      text-align: center;
+      font-size: 18px;
+      opacity: .9;
+      margin-bottom: 32px;
+    }
+
+    .benefits {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto 32px;
+      max-width: 520px;
+      font-size: 16px;
+    }
+
+    .benefits li {
+      margin-bottom: 10px;
+    }
+
+    .proof {
+      text-align: center;
+      margin-bottom: 32px;
+      font-size: 15px;
+      opacity: .9;
+    }
+
+    .cta-box {
+      background: rgba(0, 0, 0, .35);
+      border-radius: 14px;
+      padding: 28px 20px;
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .price {
+      margin-bottom: 16px;
+      font-weight: 600;
+      opacity: .9;
+    }
+
+    .cta {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff1f2d, #ff4b4b);
+      color: #fff;
+      font-weight: 800;
+      padding: 16px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .guarantee {
+      margin-top: 14px;
+      font-size: 13px;
+      opacity: .8;
+    }
+
+    .faq h2 {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .faq p {
+      max-width: 720px;
+      margin: 0 auto 18px;
+      font-size: 14px;
+      opacity: .9;
+    }
+
+    .topbar {
+      background: #b00000;
+      color: #fff;
+      text-align: center;
+      padding: 12px;
+      font-weight: 800;
+      font-size: 14px
+    }
+
+    .hero-card {
+      background: rgba(0, 0, 0, .35);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 32px auto;
+      max-width: 860px
+    }
+
+    .cta {
+      display: inline-block;
+      margin: 18px auto 8px;
+      background: linear-gradient(135deg, #ff1f2d, #ff4b4b);
+      color: #fff;
+      padding: 16px 28px;
+      border-radius: 10px;
+      font-weight: 800;
+      text-decoration: none;
+      text-align: center
+    }
+
+    .cta-big {
+      font-size: 18px;
+      padding: 18px 36px
+    }
+
+    .price-note,
+    .secure {
+      font-size: 13px;
+      opacity: .85;
+      text-align: center
+    }
+
+    .trust {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: 13px;
+      opacity: .9
+    }
+
+    section {
+      margin-bottom: 64px
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 18px
+    }
+
+    .deliver-list,
+    .bonus-list {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 15px;
+      line-height: 1.6
+    }
+
+    .pricing {
+      text-align: center
+    }
+
+    .pricing .big {
+      font-size: 40px;
+      font-weight: 800;
+      margin: 8px 0
+    }
+
+    .guarantee-block {
+      background: rgba(0, 0, 0, .3);
+      padding: 32px;
+      border-radius: 16px;
+      text-align: center
+    }
+
+
+    /* ===== Ajustes de centralizacao e responsividade ===== */
+    .hero-info {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* Mantem a lista "escaneavel" e alinhada sem ficar torta no centro */
+    .benefits {
+      display: inline-block;
+      text-align: left;
+      width: min(520px, 100%);
+    }
+
+    .authority p,
+    .deliverable p,
+    .guarantee-block p {
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .deliver-list {
+      padding-left: 18px;
+    }
+
+    .bonus-list p {
+      margin: 0 auto 12px;
+      max-width: 760px;
+    }
+
+    @media (max-width: 820px) {
+      .wrap {
+        padding: 36px 16px 64px;
+      }
+
+      section {
+        margin-bottom: 48px;
+      }
+
+      .hero-card {
+        padding: 24px 16px;
+      }
+
+      .subheadline {
+        font-size: 16px;
+      }
+
+      .pricing .big {
+        font-size: 34px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .topbar {
+        font-size: 13px;
+        padding: 10px 12px;
+      }
+
+      .headline {
+        font-size: 26px;
+        line-height: 1.18;
+      }
+
+      .subheadline {
+        font-size: 15px;
+      }
+
+      .cta {
+        width: 100%;
+        max-width: 420px;
+      }
+
+      .trust {
+        gap: 10px;
+      }
+
+      .deliver-list {
+        padding-left: 18px;
+      }
+
+      .pricing .big {
+        font-size: 30px;
+      }
+
+      .guarantee-block {
+        padding: 22px 16px;
+      }
+    }
+
+
+
+    /* ===== AREA DE IMAGENS HERO ===== */
+    .hero-media {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 32px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      display: block;
+    }
+
+    .product-cover {
+      max-width: 360px;
+      flex: 1 1 300px;
+    }
+
+    .expert-photo {
+      max-width: 260px;
+      flex: 1 1 220px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-media {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .product-cover,
+      .expert-photo {
+        max-width: 280px;
+      }
+    }
+
+    .hero-media {
+      display: flex;
+      justify-content: center;
+      margin: 24px auto 32px;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+    }
+
+    /* AUMENTA O TAMANHO DA IMAGEM DA EXPERT */
+    .expert-photo {
+      max-width: 420px;
+      /* aumente aqui se quiser mais */
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .expert-photo {
+        max-width: 320px;
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- BARRA DE AVISO -->
+  <div class="topbar">
+    <strong>ATENÇÃO:</strong> Desconto especial de <strong>R$ 597</strong> por <strong>R$ 69,90</strong> disponível hoje. Vagas limitadas.
+  </div>
+
+  <!-- HERO / OFERTA DIRETA -->
+  <main class="wrap">
+    <section class="hero">
+
+      <!-- AREA DE IMAGENS (CAPA DO PRODUTO + EXPERT) -->
+      <div class="hero-media">
+
+        <a href="#cta-acesso" class="product-cover">
+          <img src="./image/1.jpeg" alt="Capa do produto Segredos do Orgasmo">
+        </a>
+
+
+
+
+      </div>
+
+
+
+      <h1 class="headline">O Guia Definitivo para Aumentar o Prazer Feminino com Segurança e Confiança</h1>
+      <p class="subheadline">
+        Aprenda técnicas práticas, baseadas em educação sexual moderna, para melhorar o desempenho íntimo,
+        fortalecer o relacionamento e proporcionar experiências mais satisfatórias — mesmo que você não tenha experiência.
+      </p>
+
+      <div class="hero-media">
+        <!-- FOTO DA EXPERT -->
+        <a href="#cta-acesso" class="expert-photo">
+          <img src="./image/3.jpeg" alt="Foto da especialista">
+        </a>
+
+
+
+        <div class="hero-card">
+          <div class="hero-info">
+            <ul class="benefits">
+              <li>✔ Método educativo e passo a passo</li>
+              <li>✔ Conteúdo discreto e confidencial</li>
+              <li>✔ Acesso imediato após a compra</li>
+              <li>✔ Indicado para adultos iniciantes ou experientes</li>
+              <li>✔ Garantia estendida de satisfação</li>
+            </ul>
+
+            <!-- ÂNCORA (para as imagens rolarem até aqui) -->
+            <span id="cta-acesso"></span>
+
+            <!-- BOTÃO COM LINK REAL (checkout) -->
+            <a href="https://SEU-LINK-DE-CHECKOUT.com" class="cta">
+              QUERO ACESSAR O MÉTODO COMPLETO AGORA
+            </a>
+
+
+            <p class="price-note">12x de R$ 6,90 ou R$ 69,90 à vista</p>
+
+            <div class="trust">
+              <span>🔒 Site oficial e seguro</span>
+              <span>⚡ Acesso imediato</span>
+              <span>🧾 Cobrança discreta</span>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- AUTORIDADE -->
+    <section class="authority">
+      <h2>Aprenda com uma especialista em educação sexual</h2>
+      <p>
+        Isabela Rossini é educadora sexual com mais de dez anos de experiência clínica e educacional,
+        tendo orientado mais de <strong>trinta mil alunos adultos</strong> a desenvolverem confiança,
+        comunicação e técnicas seguras para melhorar a vida íntima.
+      </p>
+      <p>
+        O método é baseado em anatomia, respeito mútuo e práticas responsáveis, focadas no prazer e no bem-estar do casal.
+      </p>
+    </section>
+
+    <!-- ENTREGÁVEL -->
+    <section class="deliverable">
+      <h2>O Que Você Vai Receber</h2>
+      <ul class="deliver-list">
+        <li>Aulas em vídeo com técnicas práticas e educativas</li>
+        <li>Orientações sobre anatomia e resposta ao estímulo</li>
+        <li>Adaptação das técnicas a diferentes perfis e necessidades</li>
+        <li>Erros comuns que prejudicam a intimidade e como evitá-los</li>
+        <li>Conteúdo acessível em celular, tablet e computador</li>
+      </ul>
+    </section>
+
+    <!-- BÔNUS -->
+    <section class="bonus">
+      <h2>Bônus Inclusos sem Custo Adicional</h2>
+      <div class="bonus-list">
+        <p>🎁 <strong>Comunicação Íntima e Conforto</strong> — estratégias para diálogo e respeito mútuo</p>
+        <p>🎁 <strong>Entendendo o Desejo Feminino</strong> — educação emocional e comportamental</p>
+        <p>🎁 <strong>Conexão e Confiança no Relacionamento</strong> — práticas para fortalecer o vínculo</p>
+      </div>
+    </section>
+
+    <!-- OFERTA -->
+    <section class="pricing">
+      <h2>Oferta Exclusiva por Tempo Limitado</h2>
+      <p class="old">De <del>R$ 597,00</del></p>
+      <p class="new">Por apenas</p>
+      <p class="big">12x de R$ 6,90</p>
+      <p class="small">ou R$ 69,90 à vista</p>
+
+      <a href="#" class="cta cta-big">SIM! QUERO ACESSAR AGORA</a>
+      <p class="secure">Compra segura, privada e criptografada</p>
+    </section>
+
+    <!-- GARANTIA -->
+    <section class="guarantee-block">
+      <h2>Garantia Estendida de 60 Dias</h2>
+      <p>
+        Você pode acessar o conteúdo, assistir às aulas e avaliar com calma.
+        Se não ficar satisfeito, basta solicitar o reembolso dentro do prazo.
+      </p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+      <h2>Perguntas Frequentes</h2>
+      <p><strong>O conteúdo é discreto?</strong><br>Sim. Todo o acesso e cobrança são feitos de forma confidencial.</p>
+      <p><strong>Como recebo o acesso?</strong><br>Imediatamente após a confirmação do pagamento, por e-mail.</p>
+      <p><strong>Funciona para mim?</strong><br>O método é educativo e indicado para adultos de diferentes níveis de experiência.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footerWrap">
+      <nav class="footLinks">
+        <a href="#">Termos</a>
+        <a href="#">Política</a>
+      </nav>
+      <p class="legal">
+        Conteúdo educativo destinado a adultos. Resultados podem variar.
+        Este site não é afiliado ao Google ou YouTube.
+        <br><br>
+        © 2025 — Todos os direitos reservados
+      </p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
