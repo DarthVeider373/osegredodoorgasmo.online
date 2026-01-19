@@ -380,29 +380,86 @@
       fill: #1a0000;
     }
 
+    .segment-text-50 {
+      font-size: 20px;
+      fill: #1a0000;
+      font-weight: 900;
+    }
+
+    /* DESKTOP GRANDE */
     @media (min-width: 1200px) {
       .popup-content {
-        max-width: 500px;
+        max-width: 600px;
         padding: 50px 45px;
+      }
+      .popup-title {
+        font-size: 2em;
+      }
+      .wheel-container {
+        width: 420px;
+        height: 420px;
+      }
+      .wheel-outer-ring {
+        width: 420px;
+        height: 420px;
+      }
+      .wheel-inner-ring {
+        width: 390px;
+        height: 390px;
+      }
+      .wheel-svg-container {
+        width: 360px;
+        height: 360px;
+      }
+      .wheel-center {
+        width: 70px;
+        height: 70px;
+      }
+      .wheel-pointer svg {
+        width: 50px;
+        height: 62px;
+      }
+      .result-text {
+        font-size: 1.8em;
+      }
+      .popup-btn {
+        padding: 22px 60px;
+        font-size: 1.2em;
+      }
+      .segment-text {
+        font-size: 18px;
+      }
+      .segment-text-50 {
+        font-size: 26px;
+      }
+      .floating-emoji {
+        font-size: 32px;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+      .popup-content {
+        max-width: 520px;
+        padding: 45px 40px;
       }
       .popup-title {
         font-size: 1.8em;
       }
       .wheel-container {
-        width: 350px;
-        height: 350px;
+        width: 360px;
+        height: 360px;
       }
       .wheel-outer-ring {
-        width: 350px;
-        height: 350px;
+        width: 360px;
+        height: 360px;
       }
       .wheel-inner-ring {
-        width: 325px;
-        height: 325px;
+        width: 335px;
+        height: 335px;
       }
       .wheel-svg-container {
-        width: 300px;
-        height: 300px;
+        width: 310px;
+        height: 310px;
       }
       .wheel-center {
         width: 60px;
@@ -416,54 +473,17 @@
         font-size: 1.6em;
       }
       .popup-btn {
-        padding: 22px 60px;
-        font-size: 1.2em;
-      }
-      .segment-text {
-        font-size: 16px;
-      }
-      .floating-emoji {
-        font-size: 28px;
-      }
-    }
-
-    @media (min-width: 768px) and (max-width: 1199px) {
-      .popup-content {
-        max-width: 480px;
-        padding: 45px 40px;
-      }
-      .popup-title {
-        font-size: 1.7em;
-      }
-      .wheel-container {
-        width: 320px;
-        height: 320px;
-      }
-      .wheel-outer-ring {
-        width: 320px;
-        height: 320px;
-      }
-      .wheel-inner-ring {
-        width: 295px;
-        height: 295px;
-      }
-      .wheel-svg-container {
-        width: 270px;
-        height: 270px;
-      }
-      .wheel-center {
-        width: 55px;
-        height: 55px;
-      }
-      .result-text {
-        font-size: 1.5em;
-      }
-      .popup-btn {
         padding: 20px 55px;
         font-size: 1.15em;
       }
       .segment-text {
-        font-size: 15px;
+        font-size: 16px;
+      }
+      .segment-text-50 {
+        font-size: 22px;
+      }
+      .floating-emoji {
+        font-size: 28px;
       }
     }
 
@@ -505,6 +525,9 @@
       }
       .segment-text {
         font-size: 13px;
+      }
+      .segment-text-50 {
+        font-size: 18px;
       }
       .old-price {
         font-size: 1.4em;
@@ -567,6 +590,9 @@
       .segment-text {
         font-size: 11px;
       }
+      .segment-text-50 {
+        font-size: 15px;
+      }
       .floating-emoji {
         font-size: 20px;
       }
@@ -626,6 +652,9 @@
       }
       .segment-text {
         font-size: 10px;
+      }
+      .segment-text-50 {
+        font-size: 14px;
       }
       .floating-emoji {
         font-size: 18px;
@@ -695,6 +724,9 @@
       .segment-text {
         font-size: 9px;
       }
+      .segment-text-50 {
+        font-size: 13px;
+      }
     }
   </style>
 </head>
@@ -750,7 +782,7 @@
     <div class="alert">⚠️ IMPORTANTE: Não Feche Esta Página Ainda</div>
 
     <div class="hero-image">
-      <img src="imagens/isabella.jpg" alt="Isabella Rossini">
+      <img src="imagens/Isabella Rossini.jpeg" alt="Isabella Rossini">
     </div>
 
     <p>Olá, sou eu de novo, <strong>Isabella Rossini</strong>, e quero te parabenizar pelo seu acesso ao <strong>Segredos do Orgasmo</strong>.</p>
@@ -778,7 +810,7 @@
     <p>Eu chamo de <strong>Vigor Africano</strong>.</p>
 
     <div class="vigor-image">
-      <img src="imagens/vigor-africano.jpg" alt="Vigor Africano">
+      <img src="imagens/Vigor Africano.png" alt="Vigor Africano">
     </div>
 
     <p>E finalmente você pode ter o seu pênis enorme e grosso como uma lata de refrigerante. Não importa a sua idade, muito menos a sua genética.</p>
@@ -902,8 +934,14 @@
       text.setAttribute('text-anchor', 'middle');
       text.setAttribute('dominant-baseline', 'middle');
       text.setAttribute('transform', `rotate(${textAngle}, ${textPos.x}, ${textPos.y})`);
-      text.setAttribute('class', segment.isGold ? 'segment-text segment-text-dark' : 'segment-text');
-      text.setAttribute('font-size', segment.isGold ? '16' : '13');
+      
+      // Classe especial para o 50%
+      if (segment.isGold) {
+        text.setAttribute('class', 'segment-text segment-text-50');
+      } else {
+        text.setAttribute('class', segment.isGold ? 'segment-text segment-text-dark' : 'segment-text');
+      }
+      
       text.textContent = segment.value;
       svg.appendChild(text);
     });
