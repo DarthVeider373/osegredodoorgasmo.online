@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vazadinhos das Casadas +18</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #0b0b0b;
+      color: #fff;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.92)),
+        url('https://images.unsplash.com/photo-1542062703-4b61c6e0c8c2?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      padding: 56px 16px 64px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .brand {
+      font-weight: 900;
+      font-size: clamp(34px, 6vw, 56px);
+      color: #ff2b2b;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow:
+        0 0 10px rgba(255, 43, 43, 0.6),
+        0 0 30px rgba(255, 0, 0, 0.4),
+        0 10px 40px rgba(0, 0, 0, 0.8);
+    }
+
+    .subtitle {
+      font-size: 16px;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.72);
+      margin-bottom: 8px;
+    }
+
+    .title {
+      font-size: clamp(26px, 4.2vw, 46px);
+      font-weight: 800;
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
+
+    .title span {
+      color: #ff2b2b;
+    }
+
+    /* PLATAFORMAS (SÓ LOGOS) */
+    .platforms {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      margin: 16px 0 22px;
+    }
+
+    .platform {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 14px;
+      padding: 0;
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 92px;
+      overflow: hidden;
+    }
+
+    .platform img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0;
+      box-shadow: none;
+      display: block;
+    }
+
+    /* CTA */
+    .cta {
+      width: 100%;
+      max-width: 520px;
+      background: linear-gradient(90deg, #ff2b2b, #c90000);
+      border: none;
+      border-radius: 999px;
+      padding: 18px 24px;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 12px 34px rgba(255, 0, 0, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      margin-top: 8px;
+    }
+
+    .cta:hover {
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 16px 44px rgba(255, 0, 0, 0.55);
+    }
+
+    /* ÁREA DE FOTOS (PLACEHOLDERS) */
+    .photos {
+      width: 100%;
+      margin-top: 26px;
+    }
+
+    .photos-title {
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.92);
+      margin-bottom: 12px;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .photo-slot {
+      aspect-ratio: 1 / 1;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.06);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-slot::after {
+      content: "COLOQUE SUA FOTO AQUI";
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.55);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 10px;
+    }
+
+    /* 🔥 QUANDO TIVER IMG, SOME O TEXTO */
+    .photo-slot:has(img)::after {
+      display: none;
+    }
+
+    .photo-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* BARRA DE NÚMEROS */
+    .stats {
+      width: 100%;
+      margin-top: 18px;
+      border-radius: 18px;
+      padding: 18px;
+      background: linear-gradient(180deg, #1f1f1f, #0f0f0f);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      align-items: center;
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .stat-ico {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      color: #ff2b2b;
+      flex: 0 0 auto;
+    }
+
+    .stat-num {
+      font-weight: 900;
+      font-size: clamp(26px, 4vw, 44px);
+      line-height: 1;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-label {
+      font-weight: 900;
+      font-size: 12px;
+      text-transform: uppercase;
+      opacity: 0.95;
+      line-height: 1.1;
+    }
+
+    .stat-sub {
+      font-size: 12px;
+      opacity: 0.9;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+    }
+
+    /* BENEFÍCIOS (SECTION ÚNICA) */
+    .benefits-section {
+      width: 100%;
+      margin-top: 40px;
+      padding: 48px 20px 56px;
+      background: #260C0C;
+      border-radius: 28px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    }
+
+    .benefits {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto 36px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      text-align: center;
+    }
+
+    .benefit {
+      padding: 24px 18px;
+      border-radius: 22px;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    }
+
+    .benefit-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #ff2b2b, #a80000);
+      display: grid;
+      place-items: center;
+      font-size: 26px;
+      margin: 0 auto 14px auto;
+      box-shadow: 0 10px 30px rgba(255, 43, 43, 0.45);
+    }
+
+    .benefit h3 {
+      font-size: 15px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      line-height: 1.15;
+    }
+
+    .benefit p {
+      font-size: 14px;
+      color: #e0e0e0;
+      line-height: 1.45;
+    }
+
+    .benefits-cta {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* MODELOS / PRÉVIAS COM HOVER */
+    .models-section {
+      width: 100%;
+      background: #000;
+      padding: 64px 16px 72px;
+    }
+
+    .models-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .models-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+      margin-bottom: 40px;
+    }
+
+    .model-card {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+      min-height: 320px;
+    }
+
+    .model-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(10px);
+      transform: scale(1.05);
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+
+    .model-card:hover img {
+      filter: blur(2px);
+      transform: scale(1.06);
+    }
+
+    .model-hover {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.90));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      text-align: center;
+      padding: 16px;
+    }
+
+    .model-card:hover .model-hover {
+      opacity: 1;
+    }
+
+    .model-hover p {
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .model-hover button {
+      background: linear-gradient(90deg, #ff2b2b, #c90000);
+      border: none;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-weight: 900;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .videos-count {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.4px;
+    }
+
+    .models-cta {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* FOOTER */
+    footer {
+      width: 100%;
+      padding: 22px 16px;
+      background: #070707;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+    }
+
+    footer .footer-warning {
+      font-size: 12px;
+      color: #9a9a9a;
+      line-height: 1.5;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 980px) {
+      .platforms {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .benefits {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .models-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        padding: 44px 14px 54px;
+      }
+
+      .platforms {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      /* ✅ CENTRALIZA O CLOSE FRIENDS (ÚLTIMO CARD) NO MOBILE */
+      .platforms .platform:last-child {
+        grid-column: 1 / -1;
+        max-width: 260px;
+        margin: 0 auto;
+      }
+
+      .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        justify-content: flex-start;
+      }
+
+      .cta {
+        font-size: 16px;
+        padding: 16px 20px;
+      }
+
+      .benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .models-grid {
+        grid-auto-flow: column;
+        grid-auto-columns: 78%;
+        grid-template-columns: unset;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 12px;
+        padding-bottom: 10px;
+      }
+
+      .models-grid::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .models-grid::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.14);
+        border-radius: 999px;
+      }
+
+      .model-card {
+        scroll-snap-align: start;
+        min-height: 380px;
+      }
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="brand">🔥Vazadinhos das Casadas🔥</div>
+      <div class="subtitle">O MELHOR DOS</div>
+
+      <h1 class="title">
+        <span>CONTEÚDOS</span> EXCLUSIVOS
+      </h1>
+
+      <!-- PLATAFORMAS (SÓ LOGOS) -->
+      <div class="platforms">
+        <div class="platform">
+          <img src="./image/Onlyfans.jpg" alt="OnlyFans">
+        </div>
+        <div class="platform">
+          <img src="./image/Instagram.jpg" alt="Instagram">
+        </div>
+        <div class="platform">
+          <img src="./image/Youtubers.jpg" alt="YouTube">
+        </div>
+        <div class="platform">
+          <img src="./image/Tiktok.jpg" alt="TikTok">
+        </div>
+        <div class="platform">
+          <img src="./image/CloseFriends.jpg" alt="Close Friends">
+        </div>
+      </div>
+
+
+      <div style="width: 100%; display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 0 auto; text-align: center;">
+
+        <a href="https://SEU-LINK-AQUI.com" class="cta">
+          LIBERAR CONTEÚDOS EXCLUSIVOS
+        </a>
+
+        <a href="https://SEU-LINK-DE-NAO-COMPRA.com" style='font-size: 12px; color: #9a9a9a; text-decoration: underline; font-weight: 500;'>
+          Não quero comprar agora
+        </a>
+
+      </div>
+
+
+
+
+      <!-- ÁREA PARA VOCÊ COLOCAR FOTOS -->
+      <div class="photos">
+        <div class="photos-title">🔥Prévias🔥</div>
+        <div class="photo-grid">
+          <div class="photo-slot"> <img src="./image/1.png" alt="Prévia 1"></div>
+          <div class="photo-slot"><img src="./image/2.png" alt="Prévia 2"></div>
+          <div class="photo-slot"> <img src="./image/3.png" alt="Prévia 3"> </div>
+          <div class="photo-slot"> <img src="./image/4.png" alt="Prévia 4"> </div>
+        </div>
+      </div>
+
+      <!-- BARRA DE NÚMEROS -->
+      <div class="stats">
+        <div class="stats-row">
+          <div class="stat">
+            <div class="stat-ico">▶</div>
+            <div>
+              <div class="stat-num">11.440</div>
+              <div class="stat-label">Vídeos</div>
+              <div class="stat-sub">Exclusivos</div>
+            </div>
+          </div>
+
+          <div class="stat">
+            <div class="stat-ico">★</div>
+            <div>
+              <div class="stat-num">1.711</div>
+              <div class="stat-label">Modelos</div>
+              <div class="stat-sub">Brasileiras</div>
+            </div>
+          </div>
+
+          <div class="stat">
+            <div class="stat-ico">🏷</div>
+            <div>
+              <div class="stat-num">1.289</div>
+              <div class="stat-label">Tags</div>
+              <div class="stat-sub">Adultos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BENEFÍCIOS -->
+      <div class="benefits-section">
+        <div class="benefits">
+          <div class="benefit">
+            <div class="benefit-icon">💎</div>
+            <h3>Conteúdo Exclusivo</h3>
+            <p>Acesse agora mesmo os melhores conteúdos exclusivos para assinantes.</p>
+          </div>
+          <div class="benefit">
+            <div class="benefit-icon">🇧🇷</div>
+            <h3>Conteúdo Brasileiro</h3>
+            <p>Materiais cem por cento nacionais com modelos brasileiras e criadoras.</p>
+          </div>
+          <div class="benefit">
+            <div class="benefit-icon">💳</div>
+            <h3>Pagamento Fácil</h3>
+            <p>Pague de forma simples, rápida e segura usando Pix ou cartão de crédito.</p>
+          </div>
+          <div class="benefit">
+            <div class="benefit-icon">🔄</div>
+            <h3>Atualizado Diariamente</h3>
+            <p>Todos os dias novos conteúdos exclusivos são adicionados à plataforma.</p>
+          </div>
+        </div>
+
+        <div style="width: 100%; display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 0 auto; text-align: center;">
+
+          <a href="https://SEU-LINK-AQUI.com" class="cta">
+            LIBERAR CONTEÚDOS EXCLUSIVOS
+          </a>
+
+          <a href="https://SEU-LINK-DE-NAO-COMPRA.com" style='font-size: 12px; color: #9a9a9a; text-decoration: underline; font-weight: 500;'>
+            Não quero comprar agora
+          </a>
+
+        </div>
+
+
+      </div>
+  </section>
+
+  <!-- MODELOS / PRÉVIAS COM HOVER -->
+  <section class="models-section">
+    <div class="models-wrap">
+
+      <div class="models-grid">
+        <div class="model-card">
+          <img src="./image/5.png" alt="Modelo">
+          <div class="model-hover">
+            <p>Disponível apenas para <strong>ASSINANTES</strong></p>
+            <a href="https://SEU-LINK-AQUI.com" style="background: linear-gradient(90deg, #ff2b2b, #c90000); border-radius: 999px; padding: 12px 22px; font-weight: 900; color: #fff; text-decoration: none; cursor: pointer; display: inline-block; box-shadow: 0 10px 30px rgba(255, 0, 0, 0.45);">
+              LIBERAR CONTEÚDOS
+            </a>
+          </div>
+          <span class="videos-count">76 VÍDEOS</span>
+        </div>
+
+        <div class="model-card">
+          <img src="./image/6.png" alt="Modelo">
+          <div class="model-hover">
+            <p>Disponível apenas para <strong>ASSINANTES</strong></p>
+            <a href="https://SEU-LINK-AQUI.com" style="background: linear-gradient(90deg, #ff2b2b, #c90000); border-radius: 999px; padding: 12px 22px; font-weight: 900; color: #fff; text-decoration: none; cursor: pointer; display: inline-block; box-shadow: 0 10px 30px rgba(255, 0, 0, 0.45);">
+              LIBERAR CONTEÚDOS
+            </a>
+          </div>
+          <span class="videos-count">69 VÍDEOS</span>
+        </div>
+
+        <div class="model-card">
+          <img src="./image/7.png" alt="Modelo">
+          <div class="model-hover">
+            <p>Disponível apenas para <strong>ASSINANTES</strong></p>
+            <a href="https://SEU-LINK-AQUI.com" style="background: linear-gradient(90deg, #ff2b2b, #c90000); border-radius: 999px; padding: 12px 22px; font-weight: 900; color: #fff; text-decoration: none; cursor: pointer; display: inline-block; box-shadow: 0 10px 30px rgba(255, 0, 0, 0.45);">
+              LIBERAR CONTEÚDOS
+            </a>
+          </div>
+          <span class="videos-count">77 VÍDEOS</span>
+        </div>
+
+        <div class="model-card">
+          <img src="./image/8.png" alt="Modelo">
+          <div class="model-hover">
+            <p>Disponível apenas para <strong>ASSINANTES</strong></p>
+            <a href="https://SEU-LINK-AQUI.com" style="background: linear-gradient(90deg, #ff2b2b, #c90000); border-radius: 999px; padding: 12px 22px; font-weight: 900; color: #fff; text-decoration: none; cursor: pointer; display: inline-block; box-shadow: 0 10px 30px rgba(255, 0, 0, 0.45);">
+              LIBERAR CONTEÚDOS
+            </a>
+          </div>
+          <span class="videos-count">38 VÍDEOS</span>
+        </div>
+
+        <div class="model-card">
+          <img src="./image/9.png" alt="Modelo">
+          <div class="model-hover">
+            <p>Disponível apenas para <strong>ASSINANTES</strong></p>
+            <a href="https://SEU-LINK-AQUI.com" style="background: linear-gradient(90deg, #ff2b2b, #c90000); border-radius: 999px; padding: 12px 22px; font-weight: 900; color: #fff; text-decoration: none; cursor: pointer; display: inline-block; box-shadow: 0 10px 30px rgba(255, 0, 0, 0.45);">
+              LIBERAR CONTEÚDOS
+            </a>
+          </div>
+          <span class="videos-count">53 VÍDEOS</span>
+        </div>
+      </div>
+
+      <div style="width: 100%; display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 0 auto; text-align: center;">
+
+        <a href="https://SEU-LINK-AQUI.com" class="cta">
+          LIBERAR CONTEÚDOS EXCLUSIVOS
+        </a>
+
+        <a href="https://SEU-LINK-DE-NAO-COMPRA.com" style="font-size: 12px; color: #9a9a9a; text-decoration: underline; font-weight: 500;">
+          Não quero comprar agora
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <footer class="site-footer" style="color: white; text-align: center; padding: 40px 20px; line-height: 1.8;">
+    <div class="footer-warning">
+      <strong>Atenção:</strong> Todos os vídeos e fotos postados aqui são retirados da internet, de fontes públicas.
+      <br><br><br>
+
+      Não somos responsáveis pela obtenção do conteúdo de qualquer imagem ou vídeo disponível no site.
+      <br><br><br>
+
+      Não nos responsabilizamos por qualquer dano que a distribuição ou reprodução do conteúdo disponível possa causar
+      <br>
+      aos seus autores, envolvidos ou a qualquer pessoa que tenha acesso ao mesmo.
+      <br><br><br><br>
+
+      © 2026 Vazadinhos das Casadas — Todos os direitos reservados
+      <br><br>
+
+      Site destinado exclusivamente a maiores de dezoito anos
+    </div>
+  </footer>
+
+</body>
+
+</html>
